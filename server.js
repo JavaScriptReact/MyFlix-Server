@@ -34,9 +34,8 @@ app.get("/images/:image_name", (req, res) => {
   res.sendFile(path.join(__dirname, "images", image_name));
 });
 
-app.use(express.static(path.join(__dirname, "client", "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+app.get("/", (req, res) => {
+  res.end("Weolcome in server of MyFlix");
 });
 
 server.listen(env_data.PORT, () =>
